@@ -1,0 +1,41 @@
+if [ -z $X ]; then
+
+readonly X="\[\e[m\]"  # RESET
+
+readonly R="\[\e[0;31m\]"
+readonly G="\[\e[0;32m\]"
+readonly B="\[\e[0;34m\]"
+readonly C="\[\e[0;36m\]"
+readonly M="\[\e[0;35m\]"
+readonly Y="\[\e[0;33m\]"
+readonly K="\[\e[0;30m\]"
+readonly W="\[\e[0;37m\]"
+
+readonly bR="\[\e[1;31m\]"
+readonly bG="\[\e[1;32m\]"
+readonly bB="\[\e[1;34m\]"
+readonly bC="\[\e[1;36m\]"
+readonly bM="\[\e[1;35m\]"
+readonly bY="\[\e[1;33m\]"
+readonly bK="\[\e[1;30m\]"
+readonly bW="\[\e[1;37m\]"
+
+readonly uR="\[\e[4;31m\]"
+readonly uG="\[\e[4;32m\]"
+readonly uB="\[\e[4;34m\]"
+readonly uC="\[\e[4;36m\]"
+readonly uM="\[\e[4;35m\]"
+readonly uY="\[\e[4;33m\]"
+readonly uK="\[\e[4;30m\]"
+readonly uW="\[\e[4;37m\]"
+
+readonly bgR="\[\e[41m\]"
+readonly bgG="\[\e[42m\]"
+readonly bgB="\[\e[44m\]"
+readonly bgC="\[\e[46m\]"
+readonly bgM="\[\e[45m\]"
+readonly bgY="\[\e[43m\]"
+readonly bgK="\[\e[40m\]"
+readonly bgW="\[\e[47m\]"
+
+fi
