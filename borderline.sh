@@ -21,22 +21,22 @@ __borderline() {
         local marks
 
         # branch is modified?
-        [ -n "$($git_eng status --porcelain)" ] && marks+=" $GIT_BRANCH_CHANGED_SYMBOL"
+        [ -n "$($git_eng status --porcelain)" ] && marks+="$GIT_BRANCH_CHANGED_SYMBOL"
 
         # how many commits local branch is ahead/behind of remote?
         local stat="$($git_eng status --porcelain --branch | grep '^##' | grep -o '\[.\+\]$')"
         local aheadN="$(echo $stat | grep -o 'ahead [[:digit:]]\+' | grep -o '[[:digit:]]\+')"
         local behindN="$(echo $stat | grep -o 'behind [[:digit:]]\+' | grep -o '[[:digit:]]\+')"
-        [ -n "$aheadN" ] && marks+=" $GIT_NEED_PUSH_SYMBOL$aheadN"
-        [ -n "$behindN" ] && marks+=" $GIT_NEED_PULL_SYMBOL$behindN"
+        [ -n "$aheadN" ] && marks+="$GIT_NEED_PUSH_SYMBOL$aheadN "
+        [ -n "$behindN" ] && marks+="$GIT_NEED_PULL_SYMBOL$behindN "
 
         # print the git branch segment without a trailing newline
-        printf "$bgB$bW$GIT_BRANCH_SYMBOL$W$bgB$branch$bgB$bW$marks$B$bgC$triangle"
+        printf "$bgB$bW$GIT_BRANCH_SYMBOL$W$bgB$branch$bgB$bW $marks$B$bgC$triangle"
     }
 
     __venv(){
         if [ -n "$VIRTUAL_ENV" ]; then
-            printf "$W$bgY $(basename "$VIRTUAL_ENV")$Y"
+            printf "$W$bgY($(basename "$VIRTUAL_ENV"))$Y"
             if [ -d .git ]; then
                 printf "$bgB$triangle"
             else
