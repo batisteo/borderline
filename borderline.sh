@@ -37,7 +37,10 @@ __borderline() {
     __venv(){
         if [ -n "$VIRTUAL_ENV" ]; then
             printf "$W$bgY($(basename "$VIRTUAL_ENV"))$Y"
-            if [ -d .git ]; then
+            local branch="$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --always 2>/dev/null)"
+
+            if [ -n "$branch" ]; then
+
                 printf "$bgB$triangle"
             else
                 printf "$bgC$triangle"
